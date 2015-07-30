@@ -11,10 +11,8 @@ customers_app.factory("ProductFactory", function($http) {
     };
 
     factory.addProduct = function(info, callback) {
-        $http.post("/saveProduct").success(function(info) {
-            products.push({name: info.name, imgUrl: info.imgUrl, description: info.description});
+        $http.post("/saveProduct", info).success(function() {
             callback(info);
-
         });
     };
 

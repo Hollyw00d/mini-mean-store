@@ -11,6 +11,9 @@ var Order = mongoose.model("Order");
 // note the immediate function and the object that is returned
 module.exports = (function() {
     return {
+
+
+        /****** Customers methods  ******/
         show: function(req, res) {
 
             // Show customer documents from the
@@ -25,7 +28,6 @@ module.exports = (function() {
 
             });
         },
-
         saveCustomer: function(req, res) {
 
             var customer = new Customer(req.body);
@@ -44,8 +46,6 @@ module.exports = (function() {
             });
 
         },
-
-
         deleteCustomer: function(req, res) {
 
             Customer.remove({_id: req.params.id}, function(err) {
@@ -60,6 +60,9 @@ module.exports = (function() {
             });
 
         },
+
+
+        /****** Orders methods  ******/
         showOrders: function(req, res) {
 
             // Show customer documents from the
@@ -97,11 +100,11 @@ module.exports = (function() {
         deleteOrder: function(req, res) {
             Order.remove({_id: req.params.id}, function(err) {
                 if(err) {
-                    console.log("Product delete error:", err);
+                    console.log("Order delete error:", err);
                 }
                 else {
-                    console.log("Product deleted!");
-                    res.redirect("/");
+                    console.log("Order deleted!");
+                    res.redirect("/#orders");
                 }
             });
         }

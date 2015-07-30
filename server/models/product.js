@@ -2,9 +2,10 @@
 var mongoose = require("mongoose");
 
 var ProductsSchema = new mongoose.Schema({
-    name: { type: String, unique: true, trim: true },
-    imgUrl: { type: String, unique: true, trim: true },
+    name: { type: String, trim: true },
+    imgUrl: { type: String, trim: true },
     description: { type: String, trim: true },
+    initialQuantity: Number,
     created_at: {type: Date, default: Date.now}
 });
 

@@ -50,10 +50,7 @@
 
         <p id="search-customer-order"><input ng-model="filter_name" type="text" placeholder="search orders by customer name"/></p>
 
-        <!-- Server side errors -->
-        <div ng-bind="errors.errors.name.message" class="error"></div>
-        <div ng-bind="errors.errors.quantity.message" class="error"></div>
-        <div ng-bind="errors.errors.product.message" class="error"></div><br />
+        <!-- client side errors -->
 
         <table class="customers-orders-table">
             <thead>

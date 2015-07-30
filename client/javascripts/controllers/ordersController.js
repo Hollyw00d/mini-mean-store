@@ -1,6 +1,7 @@
 // client controller
 customers_app.controller("ordersController", function($scope, CustomerFactory, ProductFactory, OrderFactory) {
 
+    $scope.multipleErrors = [];
 
     /****** Use CustomerFactory ******/
     CustomerFactory.getCustomers(function (data) {
@@ -22,11 +23,13 @@ customers_app.controller("ordersController", function($scope, CustomerFactory, P
         for(var i in $scope.customers) {
             if($scope.new_customer.name === $scope.customers[i].name) {
                 duplicate_found = true;
-                $scope.error = "This is already a customer with that name.";
+                $scope.errors.push("This is already a customer with that name.");
 
-                console.log("$scope.error:", $scope.error);
+                console.log("addCustomer $scope.multipleErrors:", $scope.error);
             }
         }
+
+
 
         CustomerFactory.addCustomer($scope.new_customer, function (errors) {
 
@@ -47,18 +50,39 @@ customers_app.controller("ordersController", function($scope, CustomerFactory, P
         $scope.products = data;
     });
 
+
     $scope.addProduct = function() {
 
-        ProductFactory.addProduct($scope.new_product, function(errors) {
-            $scope.errors = errors;
+        var duplicate_found = false;
 
-            ProductFactory.getProducts(function(data) {
-                $scope.products = data;
+        for(var i in $scope.products) {
+            if($scope.new_product.name === $scope.products[i].name) {
+                duplicate_found = true;
+                $scope.multipleErrors.push("There is already a product with that name.");
+            }
+        }
+
+        if($scope.new_product.imgUrl.length < 10) {
+            $scope.multipleErrors.push("Your image URL must be at least 10 characters or more.");
+        }
+
+        console.log("addProduct $scope.multipleErrors array:", $scope.multipleErrors);
+
+        if($scope.multipleErrors.length === 0) {
+
+            ProductFactory.addProduct($scope.new_product, function(errors) {
+                $scope.errors = errors;
+
+
+                    ProductFactory.getProducts(function(data) {
+                        $scope.products = data;
+                    });
+
+                    $scope.new_product = {};
+
             });
 
-
-        });
-
+        }
 
         $scope.new_product = {};
 

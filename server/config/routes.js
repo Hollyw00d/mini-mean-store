@@ -41,6 +41,7 @@ module.exports = function(app) {
     });
 
     app.post("/saveOrder", function(req, res) {
+        products.updateProduct(req, res);
         customers.saveOrder(req, res);
     });
 
@@ -53,7 +54,9 @@ module.exports = function(app) {
     });
 
 
-
+    app.get("/destroy/product/:id", function(req, res) {
+        products.deleteProduct(req, res);
+    });
 
 
 };

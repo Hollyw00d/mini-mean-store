@@ -86,7 +86,7 @@ select option:empty {
 
 #store-sidebar {
     width: 225px;
-    min-height: 200px;
+    min-height: 60px;
     float: left;
     padding: 20px;
     border: 1px solid #000;
@@ -119,10 +119,15 @@ select option:empty {
     display: inline-block;
     text-align: center;
     float: left;
-    padding: 5px;
+    padding: 0 10px 20px 0;
 }
 
 #product-list img {
     width: 100px;
     height: 100px;
+}
+
+.show-more-less-link {
+    display: block;
+    padding: 0 0 0 40px;
 }
