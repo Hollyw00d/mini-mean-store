@@ -1,0 +1,88 @@
+<div ng-controller="ordersController">
+
+    <div id="store-sidebar">
+        <p><input type="text" ng-model="filter_name" placeholder="product name search..."/></p>
+
+
+        <h2>Add a New Product</h2>
+        <form name="newProduct" novalidate>
+            <p><label for="name">Product Name:</label><br />
+            <input ng-model="new_product.name" type="text" name="name" required ng-minlength="2"/></p>
+
+            <p><label for="imgUrl">Image URL:</label><br />
+            <input ng-model="new_product.imgUrl" type="text" name="imgUrl"/></p>
+
+            <p><label for="description">Description:</label><br />
+            <input ng-model="new_product.description" type="text" name="description" required/></p>
+
+            <p><label for="initialQuantity">Initial Quantity</label>
+            <select ng-model="new_product.initialQuantity" name="initialQuantity" required>
+                <option value="">Select a quantity...</option>
+                <option value="10">10</option>
+                <option value="20">20</option>
+                <option value="50">50</option>
+                <option value="100">100</option>
+                <option value="200">200</option>
+            </select></p>
+
+            <p><input type="submit" value="Create Product" ng-click="addProduct()" ng-disabled="newProduct.$invalid"/></p>
+        </form>
+    </div><!-- #store-sidebar -->
+
+
+    <div id="store-content">
+        <h1>Products</h1>
+
+        <ul id="product-list">
+
+            <li><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/44/Kata.jpg/220px-Kata.jpg" alt="Black Belt"/><br />
+                Black Belt<br />
+                (200 left)
+            </li>
+            <li><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/44/Kata.jpg/220px-Kata.jpg" alt="Black Belt"/><br />
+                Black Belt<br />
+                (200 left)
+            </li>
+            <li><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/44/Kata.jpg/220px-Kata.jpg" alt="Black Belt"/><br />
+                Black Belt<br />
+                (200 left)
+            </li>
+            <li><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/44/Kata.jpg/220px-Kata.jpg" alt="Black Belt"/><br />
+                Black Belt<br />
+                (200 left)
+            </li>
+            </li>
+            <li><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/44/Kata.jpg/220px-Kata.jpg" alt="Black Belt"/><br />
+                Black Belt<br />
+                (200 left)
+            </li>
+            <li><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/44/Kata.jpg/220px-Kata.jpg" alt="Black Belt"/><br />
+                Black Belt<br />
+                (200 left)
+            </li>
+            <li><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/44/Kata.jpg/220px-Kata.jpg" alt="Black Belt"/><br />
+                Black Belt<br />
+                (200 left)
+            </li>
+            <li><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/44/Kata.jpg/220px-Kata.jpg" alt="Black Belt"/><br />
+                Black Belt<br />
+                (200 left)
+            </li>
+            <li><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/44/Kata.jpg/220px-Kata.jpg" alt="Black Belt"/><br />
+                Black Belt<br />
+                (200 left)
+            </li>
+            </li>
+            <li><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/44/Kata.jpg/220px-Kata.jpg" alt="Black Belt"/><br />
+                Black Belt<br />
+                (200 left)
+            </li>
+
+
+        </ul>
+
+    </div>
+
+
+
+</div>
