@@ -41,7 +41,7 @@ module.exports = function(app) {
     });
 
     app.post("/saveOrder", function(req, res) {
-        products.updateProduct(req, res);
+        products.subtractProductQuantity(req, res);
         customers.saveOrder(req, res);
     });
 

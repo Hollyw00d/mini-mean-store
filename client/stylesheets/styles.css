@@ -139,3 +139,13 @@ select option:empty {
     display: block;
     padding: 0 0 0 40px;
 }
+
+#nav a, #nav a:link, #nav a:hover {
+    color: blue;
+}
+
+#nav a:hover, #nav a:active {
+    color: blue;
+    text-decoration: none;
+}
+

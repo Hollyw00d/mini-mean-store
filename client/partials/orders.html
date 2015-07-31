@@ -69,7 +69,7 @@
                     <td ng-bind="order.product"></td>
                     <td ng-bind="order.quantity"></td>
                     <td ng-bind="order.created_at.slice(0, 10) + ', ' + order.created_at.slice(12, 22)"></td>
-                    <td><a href="/destroy/order/{{  order._id }}">Delete Order</a></td>
+                    <td><a ng-click="quantityAdded = order.quantity" href="/destroy/order/{{  order._id }}">Delete Order</a><input name="plusQuantity" value="{{ quantityAdded }}" type="hidden"/></td>
                 </tr>
             </tbody>
 

@@ -39,6 +39,7 @@ module.exports = (function() {
         },
 
         deleteProduct: function(req, res) {
+
             Product.remove({_id: req.params.id}, function(err) {
                 if(err) {
                     console.log("Product delete error:", err);
@@ -51,7 +52,7 @@ module.exports = (function() {
             });
         },
 
-        updateProduct: function(req, res) {
+        subtractProductQuantity: function(req, res) {
 
             var submittedProductName = req.body.product;
             var minusSubmittedProductQuantity = parseInt(req.body.quantity) * -1;
@@ -65,9 +66,6 @@ module.exports = (function() {
                 }
 
             });
-
-
-
         }
 
     }
