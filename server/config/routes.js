@@ -3,6 +3,7 @@
 // First at the top of your routes.js file you'll have to require the controller
 var customers = require("./../controllers/customers.js");
 var products = require("./../controllers/products.js");
+var orders = require("./../controllers/orders.js");
 
 // This is our routes.js file located in /config/routes.js
 // This is where we will define all of our routing rules!
@@ -37,16 +38,16 @@ module.exports = function(app) {
     });
 
     app.get("/ordersObjects", function(req, res) {
-        customers.showOrders(req, res);
+        orders.showOrders(req, res);
     });
 
     app.post("/saveOrder", function(req, res) {
         products.subtractProductQuantity(req, res);
-        customers.saveOrder(req, res);
+        orders.saveOrder(req, res);
     });
 
     app.get("/destroy/order/:id", function(req, res) {
-        customers.deleteOrder(req, res);
+        orders.deleteOrder(req, res);
     });
 
     app.post("/saveProduct", function(req, res) {
