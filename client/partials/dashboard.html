@@ -22,14 +22,24 @@
 
             </ul>
 
-            <!-- show more link -->
-            <a class="show-more-less-link" href="" ng-hide="results.length === products.length" ng-click="limit = limit +5">Show more...</a>
-
-            <!-- show less link -->
-            <a class="show-more-less-link" href="" ng-hide="results.length !== products.length" ng-click="limit = limit -5">Show less..</a>
-
         </div>
 
+        <!-- show more link -->
+        <p>
+            <a class="show-more-less-link" href="" ng-hide="results.length === products.length" ng-click="limit = limit +5">Show more...</a>
+        </p>
+
+        <h2>Recent Orders</h2>
+
+        <ul ng-repeat="order in orders">
+            <li><span ng-bind="order.name"></span> purchased <span ng-bind="order.product"></span>... (<span ng-bind="order.created_by"></span> ago)</li>
+        </ul>
+
+        <h2>New Customers</h2>
+
+        <ul ng-repeat="customer in customers">
+            <li><span ng-bind="customer.name"></span> joined the store... (<span ng-bind="customer.created_by"></span> days)</li>
+        </ul>
 
 
 

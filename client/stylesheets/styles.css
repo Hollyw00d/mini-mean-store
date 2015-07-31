@@ -110,9 +110,14 @@ select option:empty {
     padding: 8px 0 0;
 }
 
+#store-content p {
+    clear: both;
+}
+
 #product-list {
     list-style: none;
-    float: left;
+    display: block;
+    clear: both;
 }
 
 #product-list li {
@@ -120,6 +125,9 @@ select option:empty {
     text-align: center;
     float: left;
     padding: 0 10px 20px 0;
+    width: 105px;
+    height: 175px;
+    overflow: hidden;
 }
 
 #product-list img {

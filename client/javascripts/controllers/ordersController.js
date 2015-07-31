@@ -1,6 +1,8 @@
 // client controller
 customers_app.controller("ordersController", function($scope, CustomerFactory, ProductFactory, OrderFactory) {
 
+    $scope.currentDate = Date.now();
+
     $scope.multipleErrors = [];
 
     /****** Use CustomerFactory ******/
