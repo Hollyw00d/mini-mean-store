@@ -1,5 +1,5 @@
 // client controller
-customers_app.controller("ordersController", function($scope, CustomerFactory, ProductFactory, OrderFactory) {
+customers_app.controller("ordersController", function($scope, $compile, CustomerFactory, ProductFactory, OrderFactory) {
 
     $scope.currentDate = Date.now();
 
@@ -8,6 +8,9 @@ customers_app.controller("ordersController", function($scope, CustomerFactory, P
     /****** Use CustomerFactory ******/
     CustomerFactory.getCustomers(function (data) {
         $scope.customers = data;
+        if($scope.customers) {
+            $scope.customers.reverse();
+        }
     });
 
     $scope.addCustomer = function() {
@@ -39,6 +42,7 @@ customers_app.controller("ordersController", function($scope, CustomerFactory, P
 
             CustomerFactory.getCustomers(function (data) {
                 $scope.customers = data;
+                $scope.customers.reverse();
             });
 
             $scope.new_customer = {};
@@ -50,6 +54,9 @@ customers_app.controller("ordersController", function($scope, CustomerFactory, P
     /****** Use ProductFactory ******/
     ProductFactory.getProducts(function(data) {
         $scope.products = data;
+        if($scope.products) {
+            $scope.products.reverse();
+        }
     });
 
 
@@ -78,6 +85,7 @@ customers_app.controller("ordersController", function($scope, CustomerFactory, P
 
                     ProductFactory.getProducts(function(data) {
                         $scope.products = data;
+                        $scope.products.reverse();
                     });
 
                     $scope.new_product = {};
@@ -94,6 +102,9 @@ customers_app.controller("ordersController", function($scope, CustomerFactory, P
     /****** Use OrderFactory ******/
     OrderFactory.getOrders(function(data) {
         $scope.orders = data;
+        if($scope.orders) {
+            $scope.orders.reverse();
+        }
     });
 
     $scope.addOrder = function() {
@@ -103,6 +114,7 @@ customers_app.controller("ordersController", function($scope, CustomerFactory, P
 
             OrderFactory.getOrders(function(data) {
                 $scope.orders = data;
+                $scope.orders.reverse();
             });
 
             console.log("$scope.new_order:", $scope.new_order);
@@ -113,5 +125,14 @@ customers_app.controller("ordersController", function($scope, CustomerFactory, P
         });
     };
 
+    $scope.showAddQuantityInput = function(productQuantity) {
+
+        var plusQuantityInput = '<input name="plusQuantity" value="' + productQuantity + '" type="text"/>';
+
+        var temp = $compile(plusQuantityInput)($scope);
+
+        angular.element(document.getElementsByClassName("plus-quantity")).append(temp);
+
+    };
 
 });
