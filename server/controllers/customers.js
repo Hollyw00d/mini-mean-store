@@ -57,6 +57,19 @@ module.exports = (function() {
 
             });
 
+        },
+        updateCustomer: function(req, res) {
+            Customer.update({_id: req.params.id}, {$set: {name: req.body.name} }, function(err) {
+                if(err) {
+                    console.log("Update customer error:", err);
+                }
+                else {
+                    console.log("Customer updated:");
+                    res.redirect("/#customers");
+                }
+
+            });
+
         }
 
     }

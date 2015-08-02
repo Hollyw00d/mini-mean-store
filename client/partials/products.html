@@ -44,7 +44,8 @@
             <li ng-repeat="product in products | filter: filter_name"><img src="{{ product.imgUrl }}" alt="" width="100" height="100"/><br />
                 <span ng-bind="product.name"></span><br />
                 (<span ng-bind="product.initialQuantity"></span> left)<br />
-                <a href="/destroy/product/{{  product._id}}">Delete</a>
+                <a href="/product/{{product._id}}">Update</a><br />
+                <a href="/destroy/product/{{  product._id}}">Delete</a><br />
             </li>
 
         </ul>

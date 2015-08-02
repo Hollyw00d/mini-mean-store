@@ -153,3 +153,22 @@ select option:empty {
     text-decoration: none;
 }
 
+#update-form label {
+    display: inline-block;
+    font-weight: bold;
+    width: 175px;
+}
+
+#update-form input[type=text] {
+    padding: 5px;
+    display: inline-block;
+    width: 650px;
+}
+
+#update-form img {
+    padding: 10px 0 0 175px;
+}
+
+.unbold {
+    font-weight: normal;
+}

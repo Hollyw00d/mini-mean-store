@@ -68,12 +68,26 @@ module.exports = (function() {
             });
         },
 
-        addProductQuantity: function(req, res) {
-            var plusProductQuantity = req.body.plusQuantity;
+        showSingleProduct: function(req, res) {
+            Product.findOne({_id: req.params.id}, function(err, product) {
 
-            console.log("req.body.plusQuantity:", plusProductQuantity);
+                res.render("./../client/editproduct", {product: product});
+            });
+        },
 
-            res.redirect("/#orders");
+        updateSingleProduct: function(req, res) {
+
+            Product.update({_id: req.params.id}, {$set: {name: req.body.name, imgUrl: req.body.imgUrl, description: req.body.description, initialQuantity: req.body.initialQuantity} }, function(err) {
+                if(err) {
+                    console.log("Update product error:", err);
+                }
+                else {
+                    console.log("Product updated:", req.body);
+                    res.redirect("/#products");
+                }
+
+            });
+
         }
 
     }

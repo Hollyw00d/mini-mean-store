@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>Edit the <%= product.name %> Product</title>
+
+    <link rel="stylesheet" type="text/css" href="/stylesheets/styles.css"/>
+
+</head>
+<body>
+
+<div id="wrapper">
+
+    <h1>Edit the <em><span class="unbold"><%= product.name %></span></em> Product</h1>
+
+    <form id="update-form" action="/product/update/<%=  product._id %>" method="post">
+        <p><label for="name">Name:</label><input type="text" name="name" value="<%= product.name %>"/></p>
+
+        <p><label for="imgUrl">Image URL:</label><input type="text" name="imgUrl" value="<%= product.imgUrl %>"/><br />
+        <img src="<%= product.imgUrl %>" alt="<%= product.name %> image" width="50" height="50"/>
+        </p>
+
+        <p><label for="description">Description:</label><input type="text" name="description" value="<%= product.description %>"/></p>
+        
+        <p><label for="initialQuantity">Quantity Left:</label><input type="number" name="initialQuantity" value="<%= product.initialQuantity %>"/></p>
+        <p><input type="submit" value="Update"/></p>
+    </form>
+
+    <p>&nbsp;</p>
+    <p><a href="/#products">Back to Products Page</a></p>
+
+</div>
+
+</body>
+</html>
