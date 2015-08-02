@@ -98,7 +98,6 @@ customers_app.controller("ordersController", function($scope, $compile, Customer
 
     };
 
-
     /****** Use OrderFactory ******/
     OrderFactory.getOrders(function(data) {
         $scope.orders = data;
@@ -123,16 +122,6 @@ customers_app.controller("ordersController", function($scope, $compile, Customer
 
 
         });
-    };
-
-    $scope.showAddQuantityInput = function(productQuantity) {
-
-        var plusQuantityInput = '<input name="plusQuantity" value="' + productQuantity + '" type="text"/>';
-
-        var temp = $compile(plusQuantityInput)($scope);
-
-        angular.element(document.getElementsByClassName("plus-quantity")).append(temp);
-
     };
 
 });

@@ -46,18 +46,42 @@ module.exports = function(app) {
         orders.saveOrder(req, res);
     });
 
+
+
+
+
+
+
+
+
     app.get("/destroy/order/:id", function(req, res) {
         orders.deleteOrder(req, res);
     });
+
+
+    app.post("/destroy/order", function(req, res) {
+        orders.deleteOrder(req, res);
+    });
+
+
+
+
+
+
+
+
+
+
+
+
+
 
     app.post("/saveProduct", function(req, res) {
         products.saveProduct(req, res);
     });
 
-
     app.get("/destroy/product/:id", function(req, res) {
         products.deleteProduct(req, res);
     });
-
 
 };

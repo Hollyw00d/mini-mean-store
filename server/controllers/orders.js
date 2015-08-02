@@ -41,8 +41,6 @@ module.exports = (function() {
         },
 
         deleteOrder: function(req, res) {
-            console.log("req.body.plusQuantity:", req.body.plusQuantity);
-
 
             Order.remove({_id: req.params.id}, function(err) {
                 if(err) {

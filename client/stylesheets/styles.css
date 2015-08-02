@@ -67,6 +67,10 @@ body {
     margin: 0 0 0 188px;
 }
 
+#orders-form .delete-order-form input[type=submit] {
+    margin: 0 !important;
+}
+
 #search-customer-order input {
     width: 200px;
     margin: 0 0 0 719px;

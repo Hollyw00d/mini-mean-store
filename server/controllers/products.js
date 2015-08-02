@@ -66,6 +66,14 @@ module.exports = (function() {
                 }
 
             });
+        },
+
+        addProductQuantity: function(req, res) {
+            var plusProductQuantity = req.body.plusQuantity;
+
+            console.log("req.body.plusQuantity:", plusProductQuantity);
+
+            res.redirect("/#orders");
         }
 
     }
