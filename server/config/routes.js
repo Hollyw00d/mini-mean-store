@@ -10,6 +10,17 @@ var orders = require("./../controllers/orders.js");
 // We will have to require this in the server.js file (and pass it a
 module.exports = function(app) {
 
+    // Session info
+    var session = require("express-session");
+
+    app.use(session({
+        secret: "c0d1ngd0j0bellevue",
+        name: "c0d1ngd0j0bellevue",
+        proxy: true,
+        resave: true,
+        saveUninitialized: true
+    }));
+
     /****** home page ******/
 
     // Show the home page

@@ -4,7 +4,17 @@ var express = require("express");
 
 var path = require("path");
 
+var session = require("express-session");
+
 var app = express();
+
+app.use(session({
+    secret: "c0d1ngd0j0bellevue",
+    name: "c0d1ngd0j0bellevue",
+    proxy: true,
+    resave: true,
+    saveUninitialized: true
+}));
 
 var bodyParser = require("body-parser");
 app.use(bodyParser.json());
