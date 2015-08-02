@@ -10,16 +10,12 @@ var orders = require("./../controllers/orders.js");
 // We will have to require this in the server.js file (and pass it a
 module.exports = function(app) {
 
-
-
     /****** home page ******/
 
     // Show the home page
     app.get("/", function(req, res) {
         res.render("index");
     });
-
-
 
     /****** customers collection actions ******/
 
@@ -45,9 +41,13 @@ module.exports = function(app) {
 
     // Show a customer to update
     app.get("/customer/:id", function(req, res) {
-        
+        customers.showSingleCustomer(req, res);
     });
 
+    // Update a customer
+    app.post("/customer/update/:id", function(req, res) {
+        customers.updateSingleCustomer(req, res);
+    });
 
 
     /****** products collection actions ******/

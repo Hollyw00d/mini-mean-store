@@ -43,7 +43,7 @@
                 <tr ng-repeat="customer in customers | filter: filter_name">
                     <td ng-bind="customer.name"></td>
                     <td ng-bind="customer.created_at.slice(0, 10) + ', ' + customer.created_at.slice(12, 22)"></td>
-                    <td><a href="/destroy/{{ customer._id }}">Delete Customer</a></td>
+                    <td><a href="/customer/{{customer._id}}">&gt;&gt; Edit Customer</a><br /><a href="/destroy/{{ customer._id }}">&gt;&gt; Delete Customer</a></td>
 
                 </tr>
 

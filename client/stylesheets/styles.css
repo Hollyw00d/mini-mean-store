@@ -172,3 +172,14 @@ select option:empty {
 .unbold {
     font-weight: normal;
 }
+
+#login-form label {
+    display: inline-block;
+    width: 100px;
+    font-weight: bold;
+}
+
+#login-form input[type=text] {
+    display: inline-block;
+    width: 250px;
+}

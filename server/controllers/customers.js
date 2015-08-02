@@ -10,7 +10,6 @@ var Customer = mongoose.model("Customer");
 module.exports = (function() {
     return {
 
-
         /****** Customers methods  ******/
         show: function(req, res) {
 
@@ -58,13 +57,19 @@ module.exports = (function() {
             });
 
         },
-        updateCustomer: function(req, res) {
+        showSingleCustomer: function(req, res) {
+            Customer.findOne({_id: req.params.id}, function(err, customer) {
+                res.render("./../client/editcustomer", {customer: customer});
+            });
+        },
+        updateSingleCustomer: function(req, res) {
+
             Customer.update({_id: req.params.id}, {$set: {name: req.body.name} }, function(err) {
                 if(err) {
                     console.log("Update customer error:", err);
                 }
                 else {
-                    console.log("Customer updated:");
+                    console.log("Customer updated:", req.body);
                     res.redirect("/#customers");
                 }
 
