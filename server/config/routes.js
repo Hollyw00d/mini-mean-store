@@ -11,6 +11,22 @@ var sessions = require("./../controllers/sessions.js");
 // We will have to require this in the server.js file (and pass it a
 module.exports = function(app, session) {
 
+    /****** app get wildcard to cover
+     all pages ******/
+
+    // Redirect to the home page if
+    // req.session.password variable
+    // isn't set by using the
+    // "c0dingd0j0bellevue" string
+    // on the login form on the
+    // home page
+    app.get("*", function() {
+        if(!req.session.password) {
+            res.redirect("/");
+        }
+    });
+
+
     /****** home page ******/
 
     // Show the home page
