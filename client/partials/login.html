@@ -1,0 +1,16 @@
+<h1>Login</h1>
+
+<p class="error"><strong>Note:</strong></p>
+<ul class="error">
+    <li>If you enter the <strong>correct password</strong> to log in, you will be redirected to the &ldquo;Dashboard&ldquo; page.</li>
+    <li>If you enter an <strong>incorrect password</strong> you will not be able to view any other page except this one.</li>
+</ul>
+
+<form id="login-form" action="/login" method="post">
+    <p><label for="password">Password:</label><input name="password" type="password"/></p>
+    <p><input type="submit" value="Log In"/></p>
+</form>
+
+<form action="/logoff" method="post">
+    <p><input type="submit" value="Log Out"/></p>
+</form>
